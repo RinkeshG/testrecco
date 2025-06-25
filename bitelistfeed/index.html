@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BiteList • Prototype Feed (local‑safe)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{--ink:#262626;--coral:#FF553E;--cream:#FFF8F1;--slate:#F4F4F7}
+    body{font-family:'Poppins',sans-serif;background:var(--slate);color:var(--ink)}
+    .btn{background:var(--coral);color:#fff}
+  </style>
+</head>
+<body class="flex min-h-screen">
+  <!-- Sidebar (static) -->
+  <aside class="w-64 bg-white shadow-lg flex flex-col">
+    <div class="p-6 text-2xl font-extrabold"><span style="color:var(--coral)">Bite</span>List</div>
+    <nav class="flex-1 px-4 space-y-2 text-sm">
+      <a href="#" class="block px-3 py-2 rounded-lg bg-[var(--coral)]/10 text-[var(--coral)] font-semibold">🍽 Feed</a>
+      <a href="#" class="block px-3 py-2 rounded-lg hover:bg-gray-100">🗺 Map</a>
+      <a href="#" class="block px-3 py-2 rounded-lg hover:bg-gray-100">🏅 Badges</a>
+    </nav>
+    <div class="p-4 border-t text-xs">@username</div>
+  </aside>
+
+  <!-- Main feed -->
+  <main class="flex-1 overflow-y-auto">
+    <!-- Composer -->
+    <div class="sticky top-0 bg-white shadow px-6 py-4 flex items-center gap-4 z-10">
+      <div class="w-10 h-10 rounded-full bg-gray-300"></div>
+      <button class="flex-1 px-4 py-2 rounded-full border border-gray-300 text-gray-600 text-sm text-left hover:bg-gray-100">Add new bite…</button>
+      <button class="btn px-4 py-2 rounded-full text-sm">Upload</button>
+    </div>
+
+    <!-- Feed content -->
+    <div class="p-6 space-y-8 max-w-xl mx-auto">
+      <!-- Card template (uses placeholder images to avoid firewall/CORS) -->
+      <article class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <header class="flex items-center justify-between p-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gray-300"></div>
+            <div>
+              <p class="font-semibold">@nisha</p>
+              <p class="text-xs text-gray-500">Bangalore · 3h</p>
+            </div>
+          </div>
+          <span class="text-xs bg-[var(--coral)]/10 text-[var(--coral)] px-2 py-0.5 rounded-full">Biriyani</span>
+        </header>
+        <img src="https://picsum.photos/800/400?random=1" class="w-full h-64 object-cover" alt="Dish placeholder"/>
+        <div class="p-4 space-y-2">
+          <p class="text-lg font-semibold">Shivaji Donne Biriyani</p>
+          <p class="text-sm text-gray-600">“The ghee hits different.”</p>
+          <div class="flex gap-4 text-xl pt-2">
+            <button>🔥 21</button>
+            <button>😋 8</button>
+            <button>🤯 3</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl shadow-sm overflow-hidden">
+        <header class="flex items-center justify-between p-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-full bg-gray-300"></div>
+            <div>
+              <p class="font-semibold">@arjun</p>
+              <p class="text-xs text-gray-500">Mumbai · 5h</p>
+            </div>
+          </div>
+          <span class="text-xs bg-amber-200 text-amber-700 px-2 py-0.5 rounded-full">Dessert</span>
+        </header>
+        <img src="https://picsum.photos/800/400?random=2" class="w-full h-64 object-cover" alt="Dish placeholder"/>
+        <div class="p-4 space-y-2">
+          <p class="text-lg font-semibold">Alphonso Kulfi – Gupta Bros</p>
+          <p class="text-sm text-gray-600">Mango overload at Juhu beach stall.</p>
+          <div class="flex gap-4 text-xl pt-2">
+            <button>🔥 9</button>
+            <button>😋 12</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </main>
+</body>
+</html>
