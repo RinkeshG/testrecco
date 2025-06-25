@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recommend — share everything you love</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body{font-family:'Inter',sans-serif;background:#0d0d0f;color:#e5e5e5}
+    ::selection{background:#ff6b5e;color:#fff}
+    /* radial backdrop for hero */
+    .hero-bg{background:radial-gradient(circle at 50% 0,#222228 0%,#0d0d0f 70%)}
+    /* vibrant gradient token */
+    .bg-accent{background:linear-gradient(135deg,#ff6b5e 0%,#ff9d57 100%)}
+    .text-gradient{background:linear-gradient(135deg,#ff6b5e 0%,#ff9d57 100%);-webkit-background-clip:text;color:transparent}
+    .card{background:#16161a;border:1px solid rgba(255,255,255,0.05);backdrop-filter:blur(2px);box-shadow:0 4px 16px rgba(0,0,0,.45)}
+    .neon:hover{filter:brightness(1.15) saturate(1.2)}
+  </style>
+</head>
+<body class="antialiased">
+  <!-- NAVBAR -->
+  <header class="sticky top-0 w-full z-20 backdrop-blur bg-[#0d0d0f]/70 border-b border-white/5">
+    <div class="max-w-6xl mx-auto h-16 px-6 md:px-8 flex items-center justify-between">
+      <span class="font-extrabold text-xl tracking-tight text-gradient">Recommend</span>
+      <a href="#waitlist" class="hidden sm:inline-flex items-center gap-2 px-5 py-2 rounded-md bg-accent text-[#0d0d0f] font-semibold shadow-lg neon transition">Join waitlist</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-bg pt-28 pb-24 text-center">
+    <div class="max-w-4xl mx-auto px-6 md:px-8">
+      <h1 class="text-gradient text-5xl md:text-7xl font-extrabold leading-tight">One link. <span class="block md:inline">Every recommendation.</span></h1>
+      <p class="mt-6 text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto">Curate your favourite cafés, books, tools & podcasts—then share them on a stunning page that lives at <code class="bg-[#222228] px-2 py-1 rounded text-[#ff9d57]">recommend/yourname</code></p>
+      <a href="#waitlist" class="mt-10 inline-flex px-10 py-4 rounded-lg bg-accent text-[#0d0d0f] text-lg font-semibold shadow-lg neon transition">Request early access</a>
+      <p class="mt-3 text-sm text-gray-500">Private beta · invites roll out weekly</p>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <section class="py-12">
+    <div class="max-w-5xl mx-auto px-6 md:px-8 grid grid-cols-1 sm:grid-cols-3 gap-8">
+      <div class="card rounded-xl p-6 text-center">
+        <p class="text-4xl font-bold mb-1 text-gradient">15s</p>
+        <p class="text-gray-400">to add a new rec</p>
+      </div>
+      <div class="card rounded-xl p-6 text-center">
+        <p class="text-4xl font-bold mb-1 text-gradient">3×</p>
+        <p class="text-gray-400">more clicks vs plain links</p>
+      </div>
+      <div class="card rounded-xl p-6 text-center">
+        <p class="text-4xl font-bold mb-1 text-gradient">∞</p>
+        <p class="text-gray-400">categories — add anything</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-24 bg-[#111112]">
+    <div class="max-w-6xl mx-auto px-6 md:px-8 grid md:grid-cols-3 gap-14 text-center md:text-left">
+      <div>
+        <div class="w-12 h-12 mb-4 rounded-full bg-accent mx-auto md:mx-0"></div>
+        <h3 class="text-xl font-semibold text-white mb-3">Ridiculously simple</h3>
+        <p class="text-gray-400">Tap “Add”, paste a link, drop a note—done. No folders, no friction.</p>
+      </div>
+      <div>
+        <div class="w-12 h-12 mb-4 rounded-full bg-accent mx-auto md:mx-0"></div>
+        <h3 class="text-xl font-semibold text-white mb-3">Looks 🔥 out‑of‑the‑box</h3>
+        <p class="text-gray-400">Smart thumbnails, clean cards and subtle animations—zero design skills required.</p>
+      </div>
+      <div>
+        <div class="w-12 h-12 mb-4 rounded-full bg-accent mx-auto md:mx-0"></div>
+        <h3 class="text-xl font-semibold text-white mb-3">Totally yours</h3>
+        <p class="text-gray-400">Vanity slug today; custom domains & private lists coming soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="py-20">
+    <div class="max-w-5xl mx-auto px-6 md:px-8 text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-14">How it works</h2>
+      <div class="grid gap-12 sm:grid-cols-3">
+        <div class="flex flex-col items-center">
+          <span class="flex items-center justify-center w-14 h-14 rounded-full bg-[#1d1d21] border border-white/5 text-gradient text-xl font-bold mb-4">1</span>
+          <h4 class="font-semibold text-white mb-2">Claim your handle</h4>
+          <p class="text-gray-400 text-sm max-w-xs">Instant sign‑up with Google or email.</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="flex items-center justify-center w-14 h-14 rounded-full bg-[#1d1d21] border border-white/5 text-gradient text-xl font-bold mb-4">2</span>
+          <h4 class="font-semibold text-white mb-2">Add recommendations</h4>
+          <p class="text-gray-400 text-sm max-w-xs">Drop a link, choose a category, add a quick note.</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <span class="flex items-center justify-center w-14 h-14 rounded-full bg-[#1d1d21] border border-white/5 text-gradient text-xl font-bold mb-4">3</span>
+          <h4 class="font-semibold text-white mb-2">Share your page</h4>
+          <p class="text-gray-400 text-sm max-w-xs">Friends explore, save, and pass it on.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAITLIST CTA -->
+  <section id="waitlist" class="relative py-24">
+    <div class="absolute inset-0 bg-accent opacity-20 blur-xl"></div>
+    <div class="relative max-w-xl mx-auto px-6 text-center">
+      <h2 class="text-3xl font-extrabold text-white mb-4">Get early access</h2>
+      <p class="text-lg text-gray-200 mb-10">Private beta is rolling out—drop your email and we’ll send your invite.</p>
+      <form action="https://example.com/waitlist" method="POST" class="flex flex-col sm:flex-row gap-4 justify-center">
+        <input name="email" type="email" required placeholder="you@example.com" class="flex-1 px-5 py-3 rounded-md bg-[#1d1d21] text-gray-100 placeholder-gray-500 focus:outline-none" />
+        <button type="submit" class="px-8 py-3 rounded-md bg-accent text-[#0d0d0f] font-semibold shadow-md neon transition">Join waitlist</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center text-gray-500 text-sm border-t border-white/5 bg-[#0d0d0f]">
+    <p>Made with ❤️ in India • <a href="mailto:hello@recommend.xyz" class="underline hover:text-gray-300">Contact</a></p>
+  </footer>
+</body>
+</html>
