@@ -3,84 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BiteList • Prototype Feed (local‑safe)</title>
+  <title>BiteList · Social Food Feed</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root{--ink:#262626;--coral:#FF553E;--cream:#FFF8F1;--slate:#F4F4F7}
+    :root{--ink:#1F1F23;--coral:#FF4F38;--cream:#FDFCF9;--slate:#F5F6FA;--ring:#FFC9C0}
     body{font-family:'Poppins',sans-serif;background:var(--slate);color:var(--ink)}
-    .btn{background:var(--coral);color:#fff}
+    .btn-primary{background:var(--coral);color:#fff;box-shadow:0 3px 10px rgba(255,79,56,.3)}
+    .btn-primary:hover{filter:brightness(1.05)}
+    .sidebar-gradient{background:linear-gradient(180deg,var(--coral) 0%,#FF7E5F 100%)}
+    .card:hover img{transform:scale(1.05)}
   </style>
 </head>
 <body class="flex min-h-screen">
-  <!-- Sidebar (static) -->
-  <aside class="w-64 bg-white shadow-lg flex flex-col">
-    <div class="p-6 text-2xl font-extrabold"><span style="color:var(--coral)">Bite</span>List</div>
-    <nav class="flex-1 px-4 space-y-2 text-sm">
-      <a href="#" class="block px-3 py-2 rounded-lg bg-[var(--coral)]/10 text-[var(--coral)] font-semibold">🍽 Feed</a>
-      <a href="#" class="block px-3 py-2 rounded-lg hover:bg-gray-100">🗺 Map</a>
-      <a href="#" class="block px-3 py-2 rounded-lg hover:bg-gray-100">🏅 Badges</a>
+  <!-- Sidebar -->
+  <aside class="w-72 sidebar-gradient text-white flex flex-col">
+    <div class="p-6 text-3xl font-extrabold tracking-tight">BiteList</div>
+    <nav class="flex-1 p-4 space-y-4 text-md">
+      <a href="#" class="flex items-center gap-3 px-4 py-2 rounded-lg bg-white/10">🍽 Feed</a>
+      <a href="#" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-white/10">🗺 Map</a>
+      <a href="#" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-white/10">🏅 Badges</a>
+      <a href="#" class="flex items-center gap-3 px-4 py-2 rounded-lg hover:bg-white/10">⚙️ Settings</a>
     </nav>
-    <div class="p-4 border-t text-xs">@username</div>
+    <div class="p-4 bg-white/10 text-sm flex items-center gap-3">
+      <img src="https://i.pravatar.cc/32?img=15" class="w-8 h-8 rounded-full border-2 border-white"/>
+      @username
+    </div>
   </aside>
 
   <!-- Main feed -->
   <main class="flex-1 overflow-y-auto">
-    <!-- Composer -->
-    <div class="sticky top-0 bg-white shadow px-6 py-4 flex items-center gap-4 z-10">
-      <div class="w-10 h-10 rounded-full bg-gray-300"></div>
-      <button class="flex-1 px-4 py-2 rounded-full border border-gray-300 text-gray-600 text-sm text-left hover:bg-gray-100">Add new bite…</button>
-      <button class="btn px-4 py-2 rounded-full text-sm">Upload</button>
-    </div>
+    <!-- Top bar -->
+    <header class="sticky top-0 bg-white shadow z-20 flex items-center justify-between px-8 py-4">
+      <div class="flex items-center gap-3">
+        <input type="text" placeholder="Search dishes or people" class="w-64 px-4 py-2 rounded-full border bg-slate-100 text-sm focus:ring-2 focus:ring-[var(--ring)] focus:outline-none"/>
+      </div>
+      <button class="btn-primary px-5 py-2 rounded-full text-sm">Add Bite +</button>
+    </header>
 
-    <!-- Feed content -->
-    <div class="p-6 space-y-8 max-w-xl mx-auto">
-      <!-- Card template (uses placeholder images to avoid firewall/CORS) -->
-      <article class="bg-white rounded-xl shadow-sm overflow-hidden">
-        <header class="flex items-center justify-between p-4">
+    <!-- Feed grid -->
+    <section class="p-8 grid gap-8 md:grid-cols-2 xl:grid-cols-3">
+      <!-- Card component -->
+      <article class="card bg-white rounded-2xl shadow-lg overflow-hidden transform transition hover:shadow-xl">
+        <header class="flex items-center justify-between px-5 py-4">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gray-300"></div>
+            <img src="https://i.pravatar.cc/40?img=8" class="w-10 h-10 rounded-full"/>
             <div>
               <p class="font-semibold">@nisha</p>
-              <p class="text-xs text-gray-500">Bangalore · 3h</p>
+              <p class="text-xs text-gray-500">Bangalore • 3h</p>
             </div>
           </div>
-          <span class="text-xs bg-[var(--coral)]/10 text-[var(--coral)] px-2 py-0.5 rounded-full">Biriyani</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-[var(--coral)]/10 text-[var(--coral)]">Biriyani</span>
         </header>
-        <img src="https://picsum.photos/800/400?random=1" class="w-full h-64 object-cover" alt="Dish placeholder"/>
-        <div class="p-4 space-y-2">
-          <p class="text-lg font-semibold">Shivaji Donne Biriyani</p>
+        <div class="overflow-hidden h-56">
+          <img src="https://picsum.photos/600/400?food=1" class="w-full h-full object-cover transition duration-700">
+        </div>
+        <div class="px-5 pt-4 pb-5 space-y-3">
+          <h3 class="font-semibold text-lg leading-tight">Shivaji Donne Biriyani</h3>
           <p class="text-sm text-gray-600">“The ghee hits different.”</p>
-          <div class="flex gap-4 text-xl pt-2">
-            <button>🔥 21</button>
-            <button>😋 8</button>
-            <button>🤯 3</button>
+          <div class="flex gap-6 text-xl select-none">
+            <button class="hover:scale-110 transition">🔥 21</button>
+            <button class="hover:scale-110 transition">😋 8</button>
+            <button class="hover:scale-110 transition">🤯 3</button>
           </div>
         </div>
       </article>
 
-      <article class="bg-white rounded-xl shadow-sm overflow-hidden">
-        <header class="flex items-center justify-between p-4">
+      <!-- Repeat with varied placeholders -->
+      <article class="card bg-white rounded-2xl shadow-lg overflow-hidden transform transition hover:shadow-xl">
+        <header class="flex items-center justify-between px-5 py-4">
           <div class="flex items-center gap-3">
-            <div class="w-10 h-10 rounded-full bg-gray-300"></div>
+            <img src="https://i.pravatar.cc/40?img=12" class="w-10 h-10 rounded-full"/>
             <div>
               <p class="font-semibold">@arjun</p>
-              <p class="text-xs text-gray-500">Mumbai · 5h</p>
+              <p class="text-xs text-gray-500">Mumbai • 5h</p>
             </div>
           </div>
-          <span class="text-xs bg-amber-200 text-amber-700 px-2 py-0.5 rounded-full">Dessert</span>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-amber-200 text-amber-700">Dessert</span>
         </header>
-        <img src="https://picsum.photos/800/400?random=2" class="w-full h-64 object-cover" alt="Dish placeholder"/>
-        <div class="p-4 space-y-2">
-          <p class="text-lg font-semibold">Alphonso Kulfi – Gupta Bros</p>
+        <div class="overflow-hidden h-56">
+          <img src="https://picsum.photos/600/400?food=2" class="w-full h-full object-cover transition duration-700">
+        </div>
+        <div class="px-5 pt-4 pb-5 space-y-3">
+          <h3 class="font-semibold text-lg leading-tight">Alphonso Kulfi – Gupta Bros</h3>
           <p class="text-sm text-gray-600">Mango overload at Juhu beach stall.</p>
-          <div class="flex gap-4 text-xl pt-2">
-            <button>🔥 9</button>
-            <button>😋 12</button>
+          <div class="flex gap-6 text-xl select-none">
+            <button class="hover:scale-110 transition">🔥 9</button>
+            <button class="hover:scale-110 transition">😋 12</button>
           </div>
         </div>
       </article>
-    </div>
+
+      <article class="card bg-white rounded-2xl shadow-lg overflow-hidden transform transition hover:shadow-xl">
+        <header class="flex items-center justify-between px-5 py-4">
+          <div class="flex items-center gap-3">
+            <img src="https://i.pravatar.cc/40?img=32" class="w-10 h-10 rounded-full"/>
+            <div>
+              <p class="font-semibold">@krupa</p>
+              <p class="text-xs text-gray-500">Delhi • 1d</p>
+            </div>
+          </div>
+          <span class="text-xs px-2 py-0.5 rounded-full bg-green-200 text-green-800">Street</span>
+        </header>
+        <div class="overflow-hidden h-56">
+          <img src="https://picsum.photos/600/400?food=3" class="w-full h-full object-cover transition duration-700">
+        </div>
+        <div class="px-5 pt-4 pb-5 space-y-3">
+          <h3 class="font-semibold text-lg leading-tight">Aloo Tikki Chat · Connaught</h3>
+          <p class="text-sm text-gray-600">Crunchy + tangy perfection. Must try.</p>
+          <div class="flex gap-6 text-xl select-none">
+            <button class="hover:scale-110 transition">🔥 5</button>
+            <button class="hover:scale-110 transition">😋 4</button>
+          </div>
+        </div>
+      </article>
+    </section>
   </main>
 </body>
 </html>
