@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rinks • Recommendations</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body{font-family:'Inter',sans-serif;background:#faf9f7}
+    ::selection{background:#ff6b5e;color:#fff}
+  </style>
+</head>
+<body class="text-[#1e1e1e] antialiased">
+  <!-- Sticky header -->
+  <header class="sticky top-0 bg-[#faf9f7]/90 backdrop-blur z-10">
+    <div class="max-w-6xl mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="font-bold">Recommend</a>
+      <a href="/signup" class="hidden sm:inline-block px-4 py-2 text-sm rounded-md bg-[#ff6b5e] text-white shadow hover:brightness-110 transition">Create your page</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="pt-12 pb-6">
+    <div class="max-w-4xl mx-auto px-6 md:px-8 text-center flex flex-col items-center gap-4">
+      <img src="https://images.unsplash.com/photo-1527980965255-d3b416303d12?auto=format&fit=crop&w=160&q=80" alt="Rinkesh avatar" class="w-28 h-28 rounded-full shadow object-cover" loading="lazy"/>
+      <h1 class="text-4xl font-extrabold">Rinks’ Favourites</h1>
+      <p class="text-gray-600 max-w-xl">Startup builder, foodie & reading addict. This is my living list of everything I can’t shut up about. Updated weekly.</p>
+      <!-- Filters -->
+      <div id="category-filter" class="flex flex-wrap justify-center gap-3 pt-2">
+        <button class="px-4 py-1 text-sm rounded-full border border-[#1e1e1e]/15 bg-[#1e1e1e]/5" data-cat="all">All</button>
+        <button class="px-4 py-1 text-sm rounded-full border border-[#1e1e1e]/15 hover:bg-[#ff6b5e]/90 hover:text-white transition" data-cat="food">Food</button>
+        <button class="px-4 py-1 text-sm rounded-full border border-[#1e1e1e]/15 hover:bg-[#ff6b5e]/90 hover:text-white transition" data-cat="books">Books</button>
+        <button class="px-4 py-1 text-sm rounded-full border border-[#1e1e1e]/15 hover:bg-[#ff6b5e]/90 hover:text-white transition" data-cat="tools">Tools</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grid -->
+  <main class="max-w-6xl mx-auto px-6 md:px-8">
+    <div id="card-grid" class="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]"></div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="py-12 text-center text-gray-500 text-sm">
+    Made with ❤️ using Recommend • <a href="/signup" class="underline hover:text-gray-700">Get your own page</a>
+  </footer>
+
+<script>
+(function(){
+  const recs=[
+    {cat:'food',title:'Bombay Brasserie',note:'No-fuss modern Indian plates, order the guntur chilli chicken.',img:'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=800&q=80',url:'https://goo.gl/maps/x'},
+    {cat:'books',title:'Creativity, Inc.',note:'My north star for building teams with candor.',img:'https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80',url:'https://amzn.to/'},
+    {cat:'tools',title:'Raycast',note:'Spotlight on steroids—frees literal hours each week.',img:'https://images.unsplash.com/photo-1580894744286-cb8c34937d09?auto=format&fit=crop&w=800&q=80',url:'https://raycast.com'},
+    {cat:'food',title:'Poolside Café',note:'Bangalore’s chillest flat-white.',img:'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80',url:'https://goo.gl/'},
+    {cat:'books',title:'The Almanack of Naval Ravikant',note:'Wisdom-per-page record holder.',img:'https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=800&q=80',url:'https://nav.al/book'}
+  ];
+
+  const grid=document.getElementById('card-grid');
+  const makeCard=item=>`
+    <a href="${item.url}" target="_blank" rel="noopener" class="break-inside-avoid inline-block w-full mb-6 group" data-cat="${item.cat}">
+      <div class="w-full bg-white rounded-2xl shadow-sm hover:shadow-md transition overflow-hidden">
+        <img src="${item.img}" alt="${item.title}" class="w-full h-48 object-cover" loading="lazy"/>
+        <div class="p-4">
+          <span class="text-xs uppercase tracking-wide text-[#ff6b5e] font-semibold">${item.cat}</span>
+          <h3 class="text-lg font-semibold mt-1">${item.title}</h3>
+          <p class="text-sm text-gray-600 mt-1 leading-snug">${item.note}</p>
+        </div>
+      </div>
+    </a>`;
+  grid.innerHTML=recs.map(makeCard).join('');
+
+  document.getElementById('category-filter').addEventListener('click',e=>{
+    if(!e.target.matches('button[data-cat]')) return;
+    const cat=e.target.dataset.cat;
+    [...grid.children].forEach(card=>{
+      card.style.display=(cat==='all'||card.dataset.cat===cat)?'inline-block':'none';
+    });
+    [...e.target.parentNode.children].forEach(btn=>btn.classList.remove('bg-[#ff6b5e]','text-white'));
+    e.target.classList.add('bg-[#ff6b5e]','text-white');
+  });
+})();
+</script>
+</body>
+</html>
