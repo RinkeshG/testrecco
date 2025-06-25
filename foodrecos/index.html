@@ -1,111 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BiteList · Eat it, Post it, Pass it on</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --cream:#FFF8F1;--ink:#262626;--coral:#FF553E;--sand:#FFF0E7;--border:#FFDCCF
-    }
-    body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink)}
-    ::selection{background:var(--coral);color:#fff}
-    .btn{background:var(--coral);color:#fff;box-shadow:0 4px 12px rgba(255,85,62,.25)}
-    .btn:hover{filter:brightness(1.07)}
-    .card{background:#fff;border:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.05)}
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BiteList • Discover food through friends</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --cream:#FFF8F1;--ink:#262626;--coral:#FF553E;--sand:#FFF0E7;--border:#FFDCCF;
+  }
+  body{font-family:'Poppins',sans-serif;background:var(--cream);color:var(--ink)}
+  ::selection{background:var(--coral);color:#fff}
+  .btn{background:var(--coral);color:#fff;box-shadow:0 4px 12px rgba(255,85,62,.25)}
+  .btn:hover{filter:brightness(1.07)}
+  .card{background:#fff;border:1px solid var(--border);box-shadow:0 4px 12px rgba(0,0,0,.05)}
+</style>
 </head>
 <body class="antialiased">
 
-  <!-- HERO ◆ copy + staggered food collage -->
-  <section class="relative">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 pt-28 pb-32 grid md:grid-cols-2 gap-12 items-center">
-      <!-- copy block -->
-      <div class="space-y-8 text-center md:text-left order-2 md:order-1">
-        <h1 class="text-5xl md:text-6xl font-extrabold leading-tight">
-          Discover food <span style="color:var(--coral)">through friends</span>
-        </h1>
-        <p class="text-lg md:text-xl max-w-md mx-auto md:mx-0">Drop dishes you love, follow taste‑twin feeds, and let BiteList spark spontaneous brunches.</p>
-        <p class="text-sm text-gray-600">Less review noise, more friend‑powered flavour.</p>
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start">
-          <a href="#join" class="btn px-8 py-4 rounded-full text-lg font-semibold transition">Claim your @handle</a>
-          <a href="#peek" class="underline underline-offset-4 text-[var(--coral)] font-medium">See a live feed →</a>
-        </div>
-      </div>
-
-      <!-- collage grid -->
-      <div class="relative w-full h-96 md:h-auto order-1 md:order-2">
-        <div class="absolute inset-0 grid grid-cols-3 gap-2 rotate-2">
-          <img src="https://images.unsplash.com/photo-1604908177522-5a684e52924c?auto=format&fit=crop&w=400&q=70" class="w-full h-full object-cover rounded-xl shadow-lg">
-          <img src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=400&q=70" class="w-full h-full object-cover rounded-xl shadow-lg row-span-2">
-          <img src="https://images.unsplash.com/photo-1601315571172-698b9adc9d0c?auto=format&fit=crop&w=400&q=70" class="w-full h-full object-cover rounded-xl shadow-lg">
-          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=70" class="w-full h-full object-cover rounded-xl shadow-lg">
-          <img src="https://images.unsplash.com/photo-1525909002-1b05e0c869d3?auto=format&fit=crop&w=400&q=70" class="w-full h-full object-cover rounded-xl shadow-lg col-span-2">
-        </div>
+<!-- ================= HERO ================= -->
+<section class="relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 pt-28 pb-32 grid lg:grid-cols-2 gap-12 items-center">
+    <!-- Copy side -->
+    <div class="space-y-8 text-center lg:text-left order-2 lg:order-1">
+      <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight">
+        Discover food <span style="color:var(--coral)">through friends</span>
+      </h1>
+      <p class="text-lg lg:text-xl max-w-md mx-auto lg:mx-0">Post dishes you love, follow taste‑twin feeds and watch BiteList spark spontaneous brunches.</p>
+      <p class="text-sm text-gray-600">Less review noise, more friend‑powered flavour.</p>
+      <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center lg:justify-start">
+        <a href="#join" class="btn px-8 py-4 rounded-full text-lg font-semibold transition">Claim your @handle</a>
+        <a href="#peek" class="underline underline-offset-4 text-[var(--coral)] font-medium">Live demo →</a>
       </div>
     </div>
-  </section>
-
-  <!-- WHY ◆ three social hooks -->
-  <section id="peek" class="py-24 bg-white border-t border-[var(--border)]">
-    <div class="max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-3 gap-12 text-center">
-      <div class="card rounded-xl p-8">
-        <span class="text-4xl">🤝</span>
-        <h3 class="mt-4 text-xl font-semibold">Follow flavour twins</h3>
-        <p class="mt-2 text-gray-600">Tap <strong>Follow</strong> on friends with kindred taste buds; their picks roll into your feed.</p>
-      </div>
-      <div class="card rounded-xl p-8">
-        <span class="text-4xl">⚡️</span>
-        <h3 class="mt-4 text-xl font-semibold">One‑tap hype</h3>
-        <p class="mt-2 text-gray-600">React with 🔥😋🤯 — skip the essays, keep the appetite.</p>
-      </div>
-      <div class="card rounded-xl p-8">
-        <span class="text-4xl">🏅</span>
-        <h3 class="mt-4 text-xl font-semibold">Unlock taste badges</h3>
-        <p class="mt-2 text-gray-600">Earn <em>‘Dessert Devotee’</em>, <em>‘Spice Slayer’</em> & more as you munch.</p>
+    <!-- Collage side -->
+    <div class="order-1 lg:order-2">
+      <div class="flex flex-wrap gap-3 justify-center lg:justify-end max-w-md mx-auto lg:mx-0">
+        <img class="w-40 h-40 object-cover rounded-xl shadow-lg" src="https://images.unsplash.com/photo-1604908177522-5a684e52924c?auto=format&fit=crop&w=400&q=70" alt="Dish" loading="lazy">
+        <img class="w-32 h-48 object-cover rounded-xl shadow-lg" src="https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=400&q=70" alt="Dish" loading="lazy">
+        <img class="w-36 h-36 object-cover rounded-xl shadow-lg" src="https://images.unsplash.com/photo-1601315571172-698b9adc9d0c?auto=format&fit=crop&w=400&q=70" alt="Dish" loading="lazy">
+        <img class="w-44 h-28 object-cover rounded-xl shadow-lg" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=70" alt="Dish" loading="lazy">
+        <img class="w-48 h-32 object-cover rounded-xl shadow-lg" src="https://images.unsplash.com/photo-1525909002-1b05e0c869d3?auto=format&fit=crop&w=400&q=70" alt="Dish" loading="lazy">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- HOW ◆ social-first workflow -->
-  <section class="py-24 bg-[var(--cream)]">
-    <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
-      <h2 class="text-3xl font-bold">How BiteList powers your appetite</h2>
-      <div class="mt-16 grid sm:grid-cols-3 gap-10">
-        <div>
-          <div class="w-14 h-14 mx-auto rounded-full bg-[var(--coral)] text-white flex items-center justify-center text-2xl font-bold">1</div>
-          <h4 class="mt-4 font-semibold">Capture a bite</h4>
-          <p class="mt-1 text-gray-700">Share‑sheet grabs photo + place in 15 s flat.</p>
-        </div>
-        <div>
-          <div class="w-14 h-14 mx-auto rounded-full bg-[#2F4858] text-white flex items-center justify-center text-2xl font-bold">2</div>
-          <h4 class="mt-4 font-semibold">Friends scroll it</h4>
-          <p class="mt-1 text-gray-700">New dishes bubble to top of their feed.</p>
-        </div>
-        <div>
-          <div class="w-14 h-14 mx-auto rounded-full bg-[#FFB457] text-white flex items-center justify-center text-2xl font-bold">3</div>
-          <h4 class="mt-4 font-semibold">Plan → devour</h4>
-          <p class="mt-1 text-gray-700">Chat picks the spot; everyone ticks it off.</p>
-        </div>
-      </div>
+<!-- ================= WHY ================= -->
+<section id="peek" class="py-24 bg-white border-t border-[var(--border)]">
+  <div class="max-w-6xl mx-auto px-6 md:px-10 grid md:grid-cols-3 gap-12 text-center">
+    <div class="card rounded-xl p-8"><span class="text-4xl">🤝</span><h3 class="mt-4 text-xl font-semibold">Follow flavour twins</h3><p class="mt-2 text-gray-600">Tap <strong>Follow</strong> on friends with kindred taste buds; their picks roll into your feed.</p></div>
+    <div class="card rounded-xl p-8"><span class="text-4xl">⚡️</span><h3 class="mt-4 text-xl font-semibold">One‑tap hype</h3><p class="mt-2 text-gray-600">React with 🔥😋🤯 — skip the essays, keep the appetite.</p></div>
+    <div class="card rounded-xl p-8"><span class="text-4xl">🏅</span><h3 class="mt-4 text-xl font-semibold">Unlock taste badges</h3><p class="mt-2 text-gray-600">Earn <em>‘Dessert Devotee’</em>, <em>‘Spice Slayer’</em> & more as you munch.</p></div>
+  </div>
+</section>
+
+<!-- ================= HOW ================= -->
+<section class="py-24 bg-[var(--cream)]">
+  <div class="max-w-4xl mx-auto px-6 md:px-10 text-center">
+    <h2 class="text-3xl font-bold">How BiteList powers your appetite</h2>
+    <div class="mt-16 grid sm:grid-cols-3 gap-10">
+      <div><div class="w-14 h-14 mx-auto rounded-full bg-[var(--coral)] text-white flex items-center justify-center text-2xl font-bold">1</div><h4 class="mt-4 font-semibold">Capture a bite</h4><p class="mt-1 text-gray-700">Share‑sheet grabs photo + place in 15 s flat.</p></div>
+      <div><div class="w-14 h-14 mx-auto rounded-full bg-[#2F4858] text-white flex items-center justify-center text-2xl font-bold">2</div><h4 class="mt-4 font-semibold">Friends scroll it</h4><p class="mt-1 text-gray-700">New dishes bubble to the top of their feed.</p></div>
+      <div><div class="w-14 h-14 mx-auto rounded-full bg-[#FFB457] text-white flex items-center justify-center text-2xl font-bold">3</div><h4 class="mt-4 font-semibold">Plan → devour</h4><p class="mt-1 text-gray-700">Group chat picks the spot; everyone ticks it off.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- MARQUEE -->
-  <section class="bg-white py-10 border-t border-[var(--border)] overflow-hidden">
-    <div class="whitespace-nowrap animate-[scroll_40s_linear_infinite] text-gray-500 text-sm flex gap-12">
-      <span>“Our friend circle now eats through this.” — Tanvi</span>
-      <span>“Taste‑twin follow feature is 🌶️🌶️🌶️.” — Sai</span>
-      <span>“FOMO cured, calories welcomed.” — Jasmine</span>
-      <span>“Date‑night roulette solved!” — Kabir</span>
-      <span>“Tokyo noodle hunt was a breeze.” — Rahul</span>
-      <span>“Our friend circle now eats through this.” — Tanvi</span>
-    </div>
-  </section>
+<!-- ================= MARQUEE ================= -->
+<section class="bg-white py-10 border-t border-[var(--border)] overflow-hidden">
+  <div class="whitespace-nowrap animate-[scroll_40s_linear_infinite] text-gray-500 text-sm flex gap-12">
+    <span>“Our friend circle now eats through this.” — Tanvi</span><span>“Taste‑twin follow feature is 🌶️🌶️🌶️.” — Sai</span><span>“FOMO cured, calories welcomed.” — Jasmine</span><span>“Date‑night roulette solved!” — Kabir</span><span>“Tokyo noodle hunt was a breeze.” — Rahul</span><span>“Our friend circle now eats through this.” — Tanvi</span>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <section id="join" class="py-28 bg-[var(--coral)] text-white text-center relative">
-    <svg viewBox="0 0 1440 320" class="absolute inset-x-0 -top-1 w-full text-[var(--coral)]" fill="currentColor"><path d="M0,160L48,170.7C96,181,192,203,288,208C384,213,480,203,576,202.7C672,203,768,213,864,208C960,203,1056,181,1152,165.3C1248,149,1344,139
+<!-- ================= CTA ================= -->
+<section id="join" class="py-28 bg-[var(--coral)] text-white text-center relative">
+  <div class="relative z-10 max-w-lg mx-auto px-6">
+    <h3 class="text-3xl font-bold">Launch your BiteList feed</h3>
+    <p class="mt-2 mb-8 opacity-90">Early access drops soon — lock your @handle today.</p>
+    <form action="#" method="POST" class="flex flex-col sm:flex-row gap-4 justify-center">
+      <input name="email" type="email" required placeholder="you@example.com" class="flex-1 px-5 py-3 rounded-full text-[var(--ink)] placeholder-gray-500 focus:outline-none" />
+      <button type="submit" class="px-8 py-3 rounded-full bg-white text-[var(--coral)] font-semibold shadow transition hover:shadow-lg">Join waitlist</
