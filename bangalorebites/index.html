@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bangalore Bites · Rinks’ Hand‑Picked Eats</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body{font-family:'Inter',sans-serif;background:#FAFAF9;color:#1F1F23}
+    :root{--accent:#D76A4E}
+    .accent-grad{background:linear-gradient(100deg,#D76A4E 0%,#F19E5F 100%);-webkit-background-clip:text;color:transparent}
+  </style>
+</head>
+<body class="antialiased">
+  <!-- HERO + filter bar sticky -->
+  <header class="bg-white shadow-sm sticky top-0 z-20">
+    <div class="max-w-6xl mx-auto px-4 md:px-10 py-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div>
+        <h1 class="text-2xl md:text-3xl font-extrabold accent-grad">Bangalore Bites</h1>
+        <p class="text-xs md:text-sm text-gray-600 mt-1">My ever-growing list of places I’d happily re‑visit & recommend.</p>
+      </div>
+      <nav id="filterBar" class="flex flex-wrap gap-2 text-sm">
+        <button class="px-3 py-1 rounded-full bg-[var(--accent)] text-white" data-cat="all">✦ All</button>
+        <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="south">South Indian</button>
+        <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="asian">Asian</button>
+        <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="dessert">Dessert</button>
+        <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="night">Late‑night</button>
+      </nav>
+      <!-- Random pick dice button on right for wide screens -->
+      <button id="randomBtn" title="Pick for me" class="hidden md:inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 hover:bg-[var(--accent)] hover:text-white text-sm dice">🎲 Random</button>
+    </div>
+  </header>
+
+  <!-- GRID -->
+  <main class="max-w-6xl mx-auto px-4 md:px-10 columns-1 sm:columns-2 lg:columns-3 gap-6 pb-24" id="cardWrap">
+    <!-- cards -->
+    <article class="mb-6 break-inside-avoid card" data-cat="south">
+      <div class="relative overflow-hidden rounded-2xl shadow-lg">
+        <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="MTR"/>
+        <a href="https://goo.gl/maps/9Ez4w" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
+      </div>
+      <div class="pt-3 pb-4 px-1">
+        <h2 class="font-semibold text-lg">MTR — Lalbagh Road</h2>
+        <p class="text-sm text-gray-600">Try the famous <strong>Rava Idli & Filter Coffee</strong>. Worth every minute of queue.</p>
+      </div>
+    </article>
+
+    <article class="mb-6 break-inside-avoid card" data-cat="asian">
+      <div class="relative overflow-hidden rounded-2xl shadow-lg">
+        <img src="https://images.unsplash.com/photo-1601047698365-39e21390c17b?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="Shoyu"/>
+        <a href="https://goo.gl/maps/xyz" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
+      </div>
+      <div class="pt-3 pb-4 px-1">
+        <h2 class="font-semibold text-lg">Shoyu — Koramangala</h2>
+        <p class="text-sm text-gray-600">Get the <strong>Salmon Nigiri</strong> & finish with yuzu sorbet.</p>
+      </div>
+    </article>
+
+    <article class="mb-6 break-inside-avoid card" data-cat="dessert">
+      <div class="relative overflow-hidden rounded-2xl shadow-lg">
+        <img src="https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="Corner House"/>
+        <a href="https://goo.gl/maps/fgh" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
+      </div>
+      <div class="pt-3 pb-4 px-1">
+        <h2 class="font-semibold text-lg">Corner House — Residency Road</h2>
+        <p class="text-sm text-gray-600"><strong>Dutch Truffle Sundae</strong>. Iconic Bangalore dessert stop.</p>
+      </div>
+    </article>
+
+    <article class="mb-6 break-inside-avoid card" data-cat="night south">
+      <div class="relative overflow-hidden rounded-2xl shadow-lg">
+        <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="Nagarjuna"/>
+        <a href="https://goo.gl/maps/abc" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
+      </div>
+      <div class="pt-3 pb-4 px-1">
+        <h2 class="font-semibold text-lg">Nagarjuna — Residency Road</h2>
+        <p class="text-sm text-gray-600"><strong>Andhra Chicken Biryani</strong> on banana leaf; extra ghee.</p>
+      </div>
+    </article>
+
+    <article class="mb-6 break-inside-avoid card" data-cat="night south">
+      <div class="relative overflow-hidden rounded-2xl shadow-lg">
+        <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="CTR"/>
+        <a href="https://goo.gl/maps/123" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
+      </div>
+      <div class="pt-3 pb-4 px-1">
+        <h2 class="font-semibold text-lg">CTR — Malleshwaram</h2>
+        <p class="text-sm text-gray-600">Late‑night <strong>Benne Dosa</strong> & kaapi heaven.</p>
+      </div>
+    </article>
+
+    <article class="mb-6 break-inside-avoid card" data-cat="italian">
+      <div class="relative overflow-hidden rounded-2xl shadow-lg">
+        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="Brik Oven"/>
+        <a href="https://goo.gl/maps/456" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
+      </div>
+      <div class="pt-3 pb-4 px-1">
+        <h2 class="font-semibold text-lg">Brik Oven — Church Street</h2>
+        <p class="text-sm text-gray-600">Wood‑fired <strong>Burrata Bash</strong> pizza & killer shakes.</p>
+      </div>
+    </article>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="py-10 text-center text-xs text-gray-500">
+    Curated by Rinks • Updated Jul 2025 • <a href="mailto:rinks@bites.in" class="underline">Contact</a>
+  </footer>
+
+  <!-- FILTER + RANDOM JS -->
+  <script>
+    const buttons=document.querySelectorAll('#filterBar button');
+    const cards=[...document.querySelectorAll('#cardWrap article')];
+    const randomBtn=document.getElementById('randomBtn');
+
+    buttons.forEach(btn=>btn.addEventListener('click',()=>{
+      buttons.forEach(b=>b.classList.remove('bg-[var(--accent)]','text-white'));
+      btn.classList.add('bg-[var(--accent)]','text-white');
+      const cat=btn.dataset.cat;
+      cards.forEach(card=>{
+        const show=cat==='all'||card.dataset.cat.includes(cat);
+        card.style.display=show?'inline-block':'none';
+      });
+    }));
+
+    randomBtn.addEventListener('click',()=>{
+      const visible=cards.filter(c=>c.style.display!=="none");
+      if(!visible.length) return;
+      const pick=visible[Math.floor(Math.random()*visible.length)];
+      pick.scrollIntoView({behavior:'smooth',block:'center'});
+      pick.classList.add('ring-4','ring-[var(--accent)]');
+      setTimeout(()=>pick.classList.remove('ring-4','ring-[var(--accent)]'),2000);
+    });
+  </script>
+</body>
+</html>
