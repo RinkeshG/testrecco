@@ -13,51 +13,56 @@
   </style>
 </head>
 <body class="antialiased">
-  <!-- HERO + filter bar sticky -->
+  <!-- HEADER -->
   <header class="bg-white shadow-sm sticky top-0 z-20">
-    <div class="max-w-6xl mx-auto px-4 md:px-10 py-6 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-      <div>
+    <div class="max-w-6xl mx-auto px-4 md:px-10 py-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+      <div class="flex flex-col gap-1">
         <h1 class="text-2xl md:text-3xl font-extrabold accent-grad">Bangalore Bites</h1>
-        <p class="text-xs md:text-sm text-gray-600 mt-1">My ever-growing list of places I’d happily re‑visit & recommend.</p>
+        <p class="text-xs md:text-sm text-gray-600">My ever‑growing list of places I’d happily re‑visit &amp; recommend.</p>
       </div>
-      <nav id="filterBar" class="flex flex-wrap gap-2 text-sm">
-        <button class="px-3 py-1 rounded-full bg-[var(--accent)] text-white" data-cat="all">✦ All</button>
-        <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="south">South Indian</button>
-        <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="asian">Asian</button>
-        <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="dessert">Dessert</button>
-        <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="night">Late‑night</button>
-      </nav>
-      <!-- Random pick dice button on right for wide screens -->
-      <button id="randomBtn" title="Pick for me" class="hidden md:inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 hover:bg-[var(--accent)] hover:text-white text-sm dice">🎲 Random</button>
+      <!-- SEARCH + FILTER WRAP -->
+      <div class="flex flex-wrap gap-2 md:gap-4 items-center justify-center md:justify-end w-full md:w-auto">
+        <input id="searchInput" type="text" placeholder="Search biryani, Indiranagar…" class="w-full md:w-60 px-3 py-1.5 rounded-full border border-gray-300 text-sm focus:ring-2 focus:ring-[var(--accent)] focus:outline-none"/>
+        <nav id="filterBar" class="flex flex-wrap gap-2 text-sm">
+          <button class="px-3 py-1 rounded-full bg-[var(--accent)] text-white" data-cat="all">✦ All</button>
+          <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="south">South Indian</button>
+          <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="asian">Asian</button>
+          <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="dessert">Dessert</button>
+          <button class="px-3 py-1 rounded-full bg-gray-100 hover:bg-gray-200" data-cat="night">Late‑night</button>
+        </nav>
+        <button id="randomBtn" title="Pick for me" class="hidden md:inline-flex items-center gap-1 px-3 py-1 rounded-full bg-gray-100 hover:bg-[var(--accent)] hover:text-white text-sm">🎲 Random</button>
+      </div>
     </div>
   </header>
 
-  <!-- GRID -->
-  <main class="max-w-6xl mx-auto px-4 md:px-10 columns-1 sm:columns-2 lg:columns-3 gap-6 pb-24" id="cardWrap">
-    <!-- cards -->
-    <article class="mb-6 break-inside-avoid card" data-cat="south">
+  <!-- GRID (masonry) -->
+  <main id="cardWrap" class="max-w-6xl mx-auto px-4 md:px-10 columns-1 sm:columns-2 lg:columns-3 gap-6 pb-24">
+    <!-- CARD: MTR -->
+    <article class="mb-6 break-inside-avoid" data-cat="south" data-search="mtr rava idli filter coffee lalbagh south indian">
       <div class="relative overflow-hidden rounded-2xl shadow-lg">
         <img src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="MTR"/>
         <a href="https://goo.gl/maps/9Ez4w" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
       </div>
       <div class="pt-3 pb-4 px-1">
         <h2 class="font-semibold text-lg">MTR — Lalbagh Road</h2>
-        <p class="text-sm text-gray-600">Try the famous <strong>Rava Idli & Filter Coffee</strong>. Worth every minute of queue.</p>
+        <p class="text-sm text-gray-600">Iconic <strong>Rava Idli & Filter Coffee</strong>. Queue but worth it.</p>
       </div>
     </article>
 
-    <article class="mb-6 break-inside-avoid card" data-cat="asian">
+    <!-- Shoyu -->
+    <article class="mb-6 break-inside-avoid" data-cat="asian" data-search="shoyu salmon nigiri koramangala asian sushi">
       <div class="relative overflow-hidden rounded-2xl shadow-lg">
         <img src="https://images.unsplash.com/photo-1601047698365-39e21390c17b?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="Shoyu"/>
         <a href="https://goo.gl/maps/xyz" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
       </div>
       <div class="pt-3 pb-4 px-1">
         <h2 class="font-semibold text-lg">Shoyu — Koramangala</h2>
-        <p class="text-sm text-gray-600">Get the <strong>Salmon Nigiri</strong> & finish with yuzu sorbet.</p>
+        <p class="text-sm text-gray-600">Get the <strong>Salmon Nigiri</strong> &amp; finish with yuzu sorbet.</p>
       </div>
     </article>
 
-    <article class="mb-6 break-inside-avoid card" data-cat="dessert">
+    <!-- Corner House -->
+    <article class="mb-6 break-inside-avoid" data-cat="dessert" data-search="corner house dutch truffle residency road dessert icecream">
       <div class="relative overflow-hidden rounded-2xl shadow-lg">
         <img src="https://images.unsplash.com/photo-1528712306091-ed0763094c98?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="Corner House"/>
         <a href="https://goo.gl/maps/fgh" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
@@ -68,7 +73,8 @@
       </div>
     </article>
 
-    <article class="mb-6 break-inside-avoid card" data-cat="night south">
+    <!-- Nagarjuna -->
+    <article class="mb-6 break-inside-avoid" data-cat="south night" data-search="nagarjuna andhra biryani residency road south indian night">
       <div class="relative overflow-hidden rounded-2xl shadow-lg">
         <img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="Nagarjuna"/>
         <a href="https://goo.gl/maps/abc" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
@@ -79,57 +85,96 @@
       </div>
     </article>
 
-    <article class="mb-6 break-inside-avoid card" data-cat="night south">
+    <!-- CTR -->
+    <article class="mb-6 break-inside-avoid" data-cat="south night" data-search="ctr benne dosa malleshwaram south indian night dosa">
       <div class="relative overflow-hidden rounded-2xl shadow-lg">
         <img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="CTR"/>
         <a href="https://goo.gl/maps/123" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
       </div>
       <div class="pt-3 pb-4 px-1">
         <h2 class="font-semibold text-lg">CTR — Malleshwaram</h2>
-        <p class="text-sm text-gray-600">Late‑night <strong>Benne Dosa</strong> & kaapi heaven.</p>
+        <p class="text-sm text-gray-600">Late-night <strong>Benne Dosa</strong> &amp; kaapi heaven.</p>
       </div>
     </article>
 
-    <article class="mb-6 break-inside-avoid card" data-cat="italian">
+    <!-- Brik Oven -->
+    <article class="mb-6 break-inside-avoid" data-cat="italian" data-search="brik oven pizza burrata bash church street italian">
       <div class="relative overflow-hidden rounded-2xl shadow-lg">
         <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=70" class="w-full h-56 object-cover" alt="Brik Oven"/>
         <a href="https://goo.gl/maps/456" target="_blank" class="absolute top-3 right-3 bg-white/80 backdrop-blur px-3 py-1 rounded-full text-xs font-medium hover:bg-white">Map →</a>
       </div>
       <div class="pt-3 pb-4 px-1">
         <h2 class="font-semibold text-lg">Brik Oven — Church Street</h2>
-        <p class="text-sm text-gray-600">Wood‑fired <strong>Burrata Bash</strong> pizza & killer shakes.</p>
+        <p class="text-sm text-gray-600">Wood‑fired <strong>Burrata Bash</strong> pizza &amp; killer shakes.</p>
       </div>
     </article>
   </main>
+    <!-- DUPLICATE & edit other cards as before … -->
+  </main>
 
-  <!-- FOOTER -->
-  <footer class="py-10 text-center text-xs text-gray-500">
-    Curated by Rinks • Updated Jul 2025 • <a href="mailto:rinks@bites.in" class="underline">Contact</a>
+  <!-- FOOTER WITH RECOMMEND FORM CTA -->
+  <footer class="bg-white border-t py-10 text-center text-xs text-gray-500 relative">
+    <p>Curated by Rinks • Updated Jul 2025</p>
+    <button id="suggestBtn" class="mt-4 inline-flex items-center gap-1 px-3 py-2 rounded-full bg-gray-100 hover:bg-[var(--accent)] hover:text-white text-sm">💌 Recommend a place</button>
+    <!-- popover form -->
+    <div id="suggestForm" class="hidden fixed inset-0 bg-black/40 flex items-center justify-center z-30">
+      <form id="recForm" class="bg-white w-80 p-6 rounded-xl shadow-xl space-y-4">
+        <h3 class="text-lg font-semibold">Suggest a spot</h3>
+        <input required name="name" placeholder="Restaurant / Stall name" class="w-full px-3 py-2 rounded border"/>
+        <textarea name="notes" placeholder="Why it's awesome" class="w-full px-3 py-2 rounded border" rows="3"></textarea>
+        <input name="link" placeholder="Google Maps link (optional)" class="w-full px-3 py-2 rounded border"/>
+        <button type="submit" class="w-full py-2 rounded bg-[var(--accent)] text-white">Send</button>
+        <p class="text-center text-xs text-gray-400">Messages go straight to my inbox.</p>
+      </form>
+    </div>
   </footer>
 
-  <!-- FILTER + RANDOM JS -->
+  <!-- JS: filters, search, random, suggest form -->
   <script>
-    const buttons=document.querySelectorAll('#filterBar button');
+    const buttons=[...document.querySelectorAll('#filterBar button')];
     const cards=[...document.querySelectorAll('#cardWrap article')];
+    const searchInput=document.getElementById('searchInput');
     const randomBtn=document.getElementById('randomBtn');
+
+    function applyFilters(){
+      const activeBtn=document.querySelector('#filterBar .text-white')||buttons[0];
+      const cat=activeBtn.dataset.cat;
+      const term=searchInput.value.toLowerCase();
+      cards.forEach(c=>{
+        const matchesCat=cat==='all'||c.dataset.cat.includes(cat);
+        const matchesSearch=c.dataset.search?.includes(term);
+        c.style.display=matchesCat&&matchesSearch?'inline-block':'none';
+      });
+    }
 
     buttons.forEach(btn=>btn.addEventListener('click',()=>{
       buttons.forEach(b=>b.classList.remove('bg-[var(--accent)]','text-white'));
       btn.classList.add('bg-[var(--accent)]','text-white');
-      const cat=btn.dataset.cat;
-      cards.forEach(card=>{
-        const show=cat==='all'||card.dataset.cat.includes(cat);
-        card.style.display=show?'inline-block':'none';
-      });
+      applyFilters();
     }));
+    searchInput.addEventListener('input',applyFilters);
 
-    randomBtn.addEventListener('click',()=>{
+    randomBtn?.addEventListener('click',()=>{
       const visible=cards.filter(c=>c.style.display!=="none");
       if(!visible.length) return;
-      const pick=visible[Math.floor(Math.random()*visible.length)];
+      const pick=visible[Math.random()*visible.length|0];
       pick.scrollIntoView({behavior:'smooth',block:'center'});
       pick.classList.add('ring-4','ring-[var(--accent)]');
       setTimeout(()=>pick.classList.remove('ring-4','ring-[var(--accent)]'),2000);
+    });
+
+    // Suggest form
+    const suggestBtn=document.getElementById('suggestBtn');
+    const suggestForm=document.getElementById('suggestForm');
+    suggestBtn.addEventListener('click',()=>suggestForm.classList.toggle('hidden'));
+    suggestForm.addEventListener('click',e=>{if(e.target===suggestForm) suggestForm.classList.add('hidden');});
+    document.getElementById('recForm').addEventListener('submit',e=>{
+      e.preventDefault();
+      const data=new FormData(e.target);
+      const params=new URLSearchParams(data).toString();
+      window.location.href=`mailto:rinks@bites.in?subject=New Place Suggestion&body=${encodeURIComponent(params)}`;
+      suggestForm.classList.add('hidden');
+      e.target.reset();
     });
   </script>
 </body>
